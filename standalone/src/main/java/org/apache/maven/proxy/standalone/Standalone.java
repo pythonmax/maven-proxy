@@ -51,18 +51,7 @@ import org.mortbay.util.InetAddrPort;
 public class Standalone
 {
 
-    public static final String CVS_NAME = "$Name$";
-
-    public static String getTag()
-    {
-        String name = extractName( CVS_NAME );
-        if ( name == null || name.trim().length() == 0 )
-        {
-            return "Unversioned";
-        }
-
-        return name;
-    }
+    public static String VERSION = "0.3-SNAPSHOT";
 
     static String extractName( String input )
     {
@@ -91,12 +80,12 @@ public class Standalone
 
     public void doMain( String args[] ) throws Exception
     {
-        System.err.println( "maven-proxy " + Standalone.getTag() );
+        System.err.println( "maven-proxy " + VERSION );
 
         if ( args.length != 1 )
         {
             System.err.println( "Usage:" );
-            System.err.println( "  java -jar maven-proxy-SNAPSHOT-uber.jar maven-proxy.properties" );
+            System.err.println( "  java -jar maven-proxy-standalone-" + VERSION + "-jar-with-dependencies.jar maven-proxy.properties" );
             return;
         }
 
@@ -151,7 +140,7 @@ public class Standalone
         HttpContext context = new HttpContext();
 
         context.setContextPath( "/" );
-        context.setAttribute( "version", Standalone.getTag() );
+        context.setAttribute( "version", VERSION );
 
         ServletHandler sh = new ServletHandler();
         System.out.println( "Prefix: '" + rcc.getPrefix() + "'" );

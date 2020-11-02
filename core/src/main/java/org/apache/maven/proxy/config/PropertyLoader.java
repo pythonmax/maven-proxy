@@ -167,7 +167,7 @@ public class PropertyLoader
 
                 RepoConfiguration rc = null;
 
-                if ( url.startsWith( "http://" ) )
+                if ( url.startsWith( "http://" ) || url.startsWith( "https://" ) )
                 {
                     rc = new HttpRepoConfiguration( key, url, description, username, password, hardFail.booleanValue(),
                             proxy, cacheFailures.booleanValue(), cachePeriod.longValue() );
