@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>maven</groupId>
+    <artifactId>maven-proxy</artifactId>
+    <version>0.3-SNAPSHOT</version>
+    <name>Maven Repository Proxy - Common</name>
+    <description>Simulates a remote repository that has upstream providers.
+        You download from it, it downloads from parent. Avoids full mirroring.
+    </description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>core</module>
+        <module>webapp</module>
+        <module>standalone</module>
+        <module>testrepo</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <moduleExcludes>
+                        <xdoc>navigation.xml</xdoc>
+                    </moduleExcludes>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>commons-httpclient</groupId>
+                <artifactId>commons-httpclient</artifactId>
+                <version>3.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

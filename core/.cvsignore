@@ -1,7 +1,0 @@
-build.properties
-target
-maven.log
-.project
-.classpath
-velocity.log
-.clover

@@ -1,1 +1,0 @@
-java -jar target\maven-proxy-1.0-dev-uber.jar src\test\test.properties
